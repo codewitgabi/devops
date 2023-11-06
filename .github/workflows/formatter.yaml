@@ -1,0 +1,39 @@
+name:
+  Learn Github Actions
+
+run-name:
+  Learn how github actions work from @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  formatter:
+    name: Check if code is formatted
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Checking for python source files
+        run: 'python3 -m black --check .'
+
+      - name: Checking for javascript source files
+        run: 'npm i prettier && prettier . --check'
+      
+        run: echo Done
+
