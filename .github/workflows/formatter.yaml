@@ -34,6 +34,6 @@ jobs:
 
       - name: Checking for javascript source files
         run: 'npm i prettier && prettier . --check'
-      
-        run: echo Done
+
+      - run: echo Done
 
