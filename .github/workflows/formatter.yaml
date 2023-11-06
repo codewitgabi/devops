@@ -30,7 +30,7 @@ jobs:
           python-version: '3.11'
 
       - name: Checking for python source files
-        run: 'python3 -m black --check .'
+        run: 'pip3 install -r requirements.txt && python3 -m black --check .'
 
       - name: Checking for javascript source files
         run: 'npm i prettier && prettier . --check'
