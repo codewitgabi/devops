@@ -35,8 +35,14 @@ jobs:
 
   typescript-compiles:
     name: Compile Typescript
-    needs: formatter
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - name: Setup nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
       - name: Ensure .ts files have no compilation errors
         run: "npm i -g typescript && tsc ."
 
