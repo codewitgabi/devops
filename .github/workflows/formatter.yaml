@@ -33,4 +33,11 @@ jobs:
       - name: Checking for javascript source files
         run: "npm i -g prettier && prettier . --check"
 
+  typescript-compiles:
+    name: Compile Typescript
+    needs: formatter
+    steps:
+      - name: Ensure .ts files have no compilation errors
+        run: "npm i -g typescript && tsc ."
+
       - run: echo Done
