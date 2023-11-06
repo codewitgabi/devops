@@ -44,6 +44,6 @@ jobs:
           node-version: "20"
 
       - name: Ensure .ts files have no compilation errors
-        run: "npm i -g typescript && tsc ."
+        run: "npm i -g typescript && tsc *.ts"
 
       - run: echo Done
