@@ -1,8 +1,6 @@
-name:
-  Learn Github Actions
+name: Learn Github Actions
 
-run-name:
-  Learn how github actions work from @${{ github.actor }}
+run-name: Learn how github actions work from @${{ github.actor }}
 
 on:
   push:
@@ -22,18 +20,17 @@ jobs:
       - name: Setup nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Checking for python source files
-        run: 'pip3 install -r requirements.txt && python3 -m black --check .'
+        run: "pip3 install -r requirements.txt && python3 -m black --check ."
 
       - name: Checking for javascript source files
-        run: 'npm i -g prettier && prettier . --check'
+        run: "npm i -g prettier && prettier . --check"
 
       - run: echo Done
-
